@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import data from './data';
+import SingleContent from './components/SingleContent';
 
 function App() {
+  const[content,setContent] = useState(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <main>
+    <div class="container">
+     <h3>พัฒนาเว็บปี2021</h3>
+        <section>
+          {content.map((data)=>{
+            return<SingleContent key={data.id}{...data}/>
+          })}
+        </section>
     </div>
+   </main>
   );
 }
 
